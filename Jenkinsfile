@@ -3,9 +3,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Setup') {
+        stage('Build') {
             steps {
-                git url: 'https://github.com/CristhianFG/hello-grails.git' 
+                git url: 'https://github.com/CristhianFG/hello-grails.git', branch: 'main' 
+                
            }
         }
         stage('Build') {
