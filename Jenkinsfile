@@ -16,7 +16,7 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew test'
-                    sh './gradlew iT'
+                    sh './gradlew integrationTest'
                 }
             }
             post {
