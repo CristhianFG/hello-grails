@@ -14,7 +14,7 @@ pipeline {
             steps {
                 withGradle {
                     sh './gradlew test'
-                    sh './gradlew -Dgeb.env=firefoxHedless iT'
+                    sh './gradlew -Dgeb.env=firefoxHeadless integrationTest'
                 }
             }
             post {
