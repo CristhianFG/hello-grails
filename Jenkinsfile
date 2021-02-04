@@ -8,8 +8,7 @@ pipeline {
                 withGradle {
                     sh './gradlew assemble'
                 }
-                configFileProvider([configFile(fileId: 'hello-grails-gradle.properties', 
-                                               targetLocation: 'systemProp.geb.env')]) {}
+                
             }
         }
         stage('Test') {
