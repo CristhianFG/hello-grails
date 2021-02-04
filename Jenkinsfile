@@ -5,12 +5,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git url: 'https://github.com/CristhianFG/hello-grails.git', branch: 'main' 
-                
-           }
-        }
-        stage('Build') {
-            steps {
                 withGradle {
                     sh './gradlew assemble'
                 }
@@ -19,7 +13,13 @@ pipeline {
         stage('Test') {
             steps {
                 withGradle {
+                    sh './gradlew test'
                     sh './gradlew -Dgeb.env=firefoxHedless iT'
+                }
+            }
+            post {
+                always {
+                    junit 'build/test-results/test/TEST-*.xml'
                 }
             }
         }
