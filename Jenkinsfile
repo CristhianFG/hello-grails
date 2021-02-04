@@ -9,6 +9,10 @@ pipeline {
                     sh './gradlew assemble'
                 }
             }
+            post {
+                 configFile: (fileId: 'hello-grails-gradle.properties',
+                              variable: 'systemProp.geb.env')
+            }
         }
         stage('Test') {
             steps {
