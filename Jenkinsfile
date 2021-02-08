@@ -18,6 +18,9 @@ pipeline {
                                                targetLocation: 'gradle.properties')]) { 
                           sh './gradlew integrationTest'
                     }
+                    withSonarQubeEnv(credentialsId: '', installationName: 'local'){
+                          sh './gradlew sonarqube'  
+                    }
                 }
             }
             post {
